@@ -428,6 +428,11 @@ if($('.call-plugin-widget').length) {
 				kvkkBox.addClass('error');
 				errors++;
 			}
+			if(errors==0) {
+				$('.call-plugin-widget-form-wrapper form .error').removeClass('error');
+				$('.call-plugin-widget-form-wrapper .call-plugin-widget-form').addClass('call-plugin-widget-processing');
+				form.submit();
+			}
 			/*
 			if(nameValue.trim()!='') {
 				var nameArray = nameValue.split(" ");
@@ -479,6 +484,7 @@ if($('.call-plugin-widget').length) {
 	});
 	$('.call-plugin-widget-form-wrapper form').submit(function(e) {
 		e.preventDefault();
+		console.log ('submit');
 		var form = $(this),
 			names = ['dil','mesaj','izin','aranma_zamani','ad_soyad','telefon','eposta','yetiskin','cocuk','giristarihi','cikistarihi'],
 			values = [],
